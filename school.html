@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>学校搜索</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        background-color: #f5f5f5;
+    }
+
+    input {
+        padding: 10px;
+        margin: 10px;
+        width: 300px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    #letters {
+        margin: 10px;
+    }
+
+    .letter {
+        margin-right: 5px;
+        cursor: pointer;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f0f0f0;
+    }
+
+    #schools {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .school-card {
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        padding: 15px;
+        margin: 10px;
+        width: 150px;
+        cursor: pointer;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.3s;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .school-card h3 {
+        margin: 0;
+    }
+
+    .school-card:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+</style>
+</head>
+<body>
+
+<input type="text" id="search" placeholder="搜索学校...">
+<div id="letters">
+    <button class="letter" data-letter="Null">隐藏</button>
+</div>
+
+<div id="schools">
+    <div class="school-card" data-aliases="明阳学校,MYXX,小学,初中,高中">
+        <div class="schoolName">明阳学校</div>
+    </div>
+    <div class="school-card" data-aliases="湖南省攸县第四中学,攸县四中,HNSYXDSZX,YXSZ,初中,高中">
+        <div class="schoolName">湖南省攸县第四中学</div>
+    </div>
+    <div class="school-card" data-aliases="湖南省攸县第二中学,攸县二中,HNSYXDEZX,YXEZ,初中,高中">
+        <div class="schoolName">湖南省攸县第二中学</div>
+    </div>
+    <div id="schools">
+    <div class="school-card" data-aliases="攸县健坤高级中学,株洲市健坤外国语学校,YXJKGJZX,ZZSJKWGYXX,小学,初中,高中">
+        <div class="schoolName">攸县健坤高级中学</div>
+    </div>
+    <div class="school-card" data-aliases="株洲市长鸿实验学校,ZZSCHSYXX,小学,初中,高中">
+        <div class="schoolName">株洲市长鸿实验学校</div>
+    </div>
+    <!-- 其他学校卡片依次添加 -->
+</div>
+
+<script>
+    const searchInput = document.getElementById('search');
+    const letters = document.querySelectorAll('.letter');
+    const schoolCards = document.querySelectorAll('.school-card');
+
+    // 搜索功能
+    searchInput.addEventListener('input', function() {
+    const searchText = this.value.trim().toLowerCase();
+    schoolCards.forEach(card => {
+        const schoolName = card.querySelector('.schoolName').textContent.toLowerCase();
+        const aliases = card.dataset.aliases.toLowerCase().split(',');
+        if (schoolName.includes(searchText) || aliases.some(alias => alias.includes(searchText))) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+});
+    // 按字母搜索功能
+    letters.forEach(letter => {
+        letter.addEventListener('click', function() {
+            const letterValue = this.dataset.letter.toLowerCase();
+            schoolCards.forEach(card => {
+                const schoolName = card.querySelector('.schoolName').textContent.toLowerCase();
+                if (schoolName.startsWith(letterValue)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+
+    // 跳转功能
+    schoolCards.forEach(card => {
+        card.addEventListener('click', function() {
+            const schoolName = card.querySelector('.schoolName').textContent;
+            // 模拟跳转至对应学校的官网，这里可以根据实际情况修改链接
+            if (schoolName === '明阳学校') {
+                window.location.href = 'School/mingyangxuexiao.html';
+            }
+            else if (schoolName === '攸县健坤高级中学') {
+                window.location.href = 'School/youxianjiankungaojizhongxue.html';
+            } else if (schoolName === '湖南省攸县第四中学') {
+                window.location.href = 'School/zhuzhoushiyxsizhong.html';
+            }else if (schoolName === '湖南省攸县第二中学') {
+                window.location.href = 'School/zhuzhoushiyxerzhong.html';
+            } else if (schoolName === '株洲市长鸿实验学校') {
+                window.location.href = 'School/zhuzhoushiyxchanghongsyxx.html';
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
