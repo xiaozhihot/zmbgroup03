@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>株洲市长鸿实验学校</title>
+    <style>
+        a[href="https://www.douyin.com/search/%E9%95%BF%E9%B8%BF%E5%AE%9E%E9%AA%8C%E5%AD%A6%E6%A0%A1?aid=8ceccc9d-ef59-47a9-813e-0be6fee3ae38&type=general"] {
+            font-size: 24px;
+            text-decoration: none; /* 去除超链接的下划线 */
+            color: black; /* 设置超链接颜色为黑色 */
+        }
+        #logoImg {
+            width: auto; /* 设置网址图标宽度为原始尺寸 */
+            height: auto; /* 设置网址图标高度为原始尺寸 */
+        }
+    </style>
+</head>
+<body>
+    <h1 id="logo">校徽</h1>
+    <img id="logoImg" src="png/zzschanghongsyxx.jpg" alt="校徽">  <!-- 设置校徽图片 !-->
+
+    <h1 onclick="toggleElement('introduction')">介绍</h1>
+    <div id="introduction" style="display: none;">
+        <iframe src="https://baike.baidu.com/item/%E6%A0%AA%E6%B4%B2%E9%95%BF%E9%B8%BF%E5%AE%9E%E9%AA%8C%E5%AD%A6%E6%A0%A1/7653244?fr=ge_ala&_swebfr=220011" width="800" height="600"></iframe>
+    </div>
+
+    <h1 onclick="toggleElement('official')">官网</h1>
+    <div id="official" style="display: none;">
+        <embed src="http://www.zzch.cn/zzch/wx_index.aspx" width="800" height="600"></embed>
+    </div>
+
+    <h1 onclick="toggleElement('articles')">相关文章</h1>
+    <div id="articles" style="display: none;">
+        <iframe src="https://wx.sogou.com/weixinwap?query=%E9%95%BF%E9%B8%BF%E5%AE%9E%E9%AA%8C%E5%AD%A6%E6%A0%A1&s=%E6%90%9C%E7%B4%A2&ie=utf8&s_from=input&type=2&t=1712394311685&pg=webSearchList&_sug_=y&_sug_type_=" width="800" height="600"></iframe>
+    </div>
+
+    <h1><a href="https://www.douyin.com/search/%E9%95%BF%E9%B8%BF%E5%AE%9E%E9%AA%8C%E5%AD%A6%E6%A0%A1?aid=8ceccc9d-ef59-47a9-813e-0be6fee3ae38&type=general" target="_blank">抖音搜索结果</a></h1>
+    
+    <script>
+        function toggleElement(elementId) {
+            var element = document.getElementById(elementId);
+            if (element.style.display === "none") {
+                element.style.display = "block";
+            } else {
+                element.style.display = "none";
+            }
+        }
+
+    document.getElementById("logoImg").style.display = "none";
+
+    document.getElementById('logo').addEventListener('click', function() {
+        var logoImg = document.getElementById("logoImg");
+        if (logoImg.style.display === "none") {
+            logoImg.style.display = "block";
+        } else {
+            logoImg.style.display = "none";
+        }
+    });
+    </script>
+</body>
+</html>
