@@ -68,23 +68,18 @@
 
 <input type="text" id="search" placeholder="搜索学校...">
 <div id="letters">
-    <button class="letter" data-letter="Null">隐藏</button>
+    <button class="letter" data-letter="hide">隐藏</button>
 </div>
 
-<div id="schools">
-    <div class="school-card" data-aliases="明阳学校,MYXX,小学,初中,高中">
-        <div class="schoolName">明阳学校</div>
-    </div>
+    <div id="schools">
     <div class="school-card" data-aliases="湖南省攸县第四中学,攸县四中,HNSYXDSZX,YXSZ,初中,高中">
         <div class="schoolName">湖南省攸县第四中学</div>
     </div>
+    <div id="schools">
     <div class="school-card" data-aliases="湖南省攸县第二中学,攸县二中,HNSYXDEZX,YXEZ,初中,高中">
         <div class="schoolName">湖南省攸县第二中学</div>
     </div>
     <div id="schools">
-    <div class="school-card" data-aliases="攸县健坤高级中学,株洲市健坤外国语学校,YXJKGJZX,ZZSJKWGYXX,小学,初中,高中">
-        <div class="schoolName">攸县健坤高级中学</div>
-    </div>
     <div class="school-card" data-aliases="株洲市长鸿实验学校,ZZSCHSYXX,小学,初中,高中">
         <div class="schoolName">株洲市长鸿实验学校</div>
     </div>
@@ -129,17 +124,13 @@
         card.addEventListener('click', function() {
             const schoolName = card.querySelector('.schoolName').textContent;
             // 模拟跳转至对应学校的官网，这里可以根据实际情况修改链接
-            if (schoolName === '明阳学校') {
-                window.location.href = 'School/mingyangxuexiao.html';
+            if (schoolName === '湖南省攸县第四中学') {
+                window.location.href = 'school/zzsyxsizhong.html';
             }
-            else if (schoolName === '攸县健坤高级中学') {
-                window.location.href = 'School/youxianjiankungaojizhongxue.html';
-            } else if (schoolName === '湖南省攸县第四中学') {
-                window.location.href = 'School/zhuzhoushiyxsizhong.html';
             }else if (schoolName === '湖南省攸县第二中学') {
-                window.location.href = 'School/zhuzhoushiyxerzhong.html';
+                window.location.href = 'school/zzsyxerzhong.html';
             } else if (schoolName === '株洲市长鸿实验学校') {
-                window.location.href = 'School/zhuzhoushiyxchanghongsyxx.html';
+                window.location.href = 'school/zzschanghongshiyanxx.html';
             }
         });
     });
